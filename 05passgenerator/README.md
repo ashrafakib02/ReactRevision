@@ -21,7 +21,7 @@ Users can generate strong passwords based on their preferences (numbers and/or s
 
 * ⚛️ React.js
 * JavaScript (ES6+)
-* Tailwind
+* Tailwind CSS
 
 ---
 
@@ -50,13 +50,13 @@ Xk8@tP2!qZ
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/password-generator.git
+git clone https://github.com/ashrafakib02/ReactRevision/tree/main/05passgenerator
 ```
 
 ### 2️⃣ Navigate to the Project Folder
 
 ```bash
-cd password-generator
+cd 05passgenerator
 ```
 
 ### 3️⃣ Install Dependencies

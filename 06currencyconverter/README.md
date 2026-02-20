@@ -1,16 +1,124 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 💱 Currency Converter
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A modern and responsive **Currency Converter** web application that allows users to convert currencies using real-time exchange rates.
 
-## React Compiler
+This project uses the free open-source exchange rate API provided by
+👉 fawazahmed0/exchange-api
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* 🌍 Convert between 150+ international currencies
+* 🔄 Real-time exchange rates (updated daily)
+* 💲 Accurate conversion up to 2 decimal places
+* 🔁 Instant currency swap functionality
+* 📱 Fully responsive design
+* ⚡ Fast and lightweight
+
+---
+
+## 🛠️ Built With
+
+* React.js
+* JavaScript (ES6+)
+* Exchange Rate API (CDN-based JSON)
+* Tailwind CSS 
+
+---
+
+## 🔗 API Used
+
+This project uses the free currency API from:
+
+**Exchange API by Fawaz Ahmed**
+
+Example endpoint format:
+
+```
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json
+```
+
+Example response structure:
+
+```json
+{
+  "date": "2026-02-19",
+  "usd": {
+    "eur": 0.92,
+    "bdt": 109.50,
+    "inr": 83.10
+  }
+}
+```
+
+### 🔄 Conversion Logic
+
+```js
+convertedAmount = amount * currencyInfo[to]
+```
+
+The result is formatted to 2 decimal places before displaying.
+
+---
+
+## 📦 Installation
+
+Follow these steps to run the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/ashrafakib02/ReactRevision/tree/main/06currencyconverter
+
+# Navigate to project folder
+cd 06currencyconverter
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+---
+
+## 🧠 How It Works
+
+1. User selects a base currency.
+2. The app fetches exchange rate data from the API.
+3. User enters an amount.
+4. The app multiplies the amount by the selected target currency rate.
+5. The converted result is displayed instantly.
+
+---
+
+## 🔄 Future Improvements
+
+* 🌙 Dark mode
+* 📊 Historical exchange rate charts
+* ⭐ Favorite currencies
+* 🌐 Language support
+* 💾 Save last selected currencies
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Push the branch
+5. Open a Pull Request
+
+---
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
+
+
+---
