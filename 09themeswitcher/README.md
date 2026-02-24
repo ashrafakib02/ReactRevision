@@ -1,16 +1,82 @@
-# React + Vite
+# ⚡ React Theme Switcher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react\&logoColor=white) ![License](https://img.shields.io/badge/License-MIT-green) ![Last Commit](https://img.shields.io/github/last-commit/ashrafakib02/ReactRevision)
 
-Currently, two official plugins are available:
+A **React** project demonstrating **Context API** for global state management, enabling users to toggle between **Light Mode** and **Dark Mode** with a single button click.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Preview
 
-## React Compiler
+You can see it live (if deployed via GitHub Pages or Vercel):
+**[Live Demo Coming Soon / Optional Deployment Link]**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+* Switch between **Light** and **Dark** themes effortlessly.
+* Built using **React Context API**.
+* Dynamic styling based on current theme.
+* Clean, responsive UI.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Technologies Used
+
+* **React** (v18.x)
+* **Context API** for state management
+* **JavaScript (ES6+)**
+* **Tailwind CSS**
+
+## 🧩 How It Works
+
+1. **Context Setup:**
+
+   * `ThemeContext` stores the current theme and a toggle function.
+2. **Provider:**
+
+   * `ThemeContextProvider` wraps the app, making theme state available globally.
+3. **Theme Toggle Button:**
+
+   * Accesses context and switches the theme dynamically.
+4. **Conditional Styling:**
+
+   * Components change style according to the current theme.
+
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js >= 16.x
+* npm or yarn
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/ashrafakib02/ReactRevision.git
+
+# Navigate to project folder
+cd ReactRevision/09themeswitcher
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start the development server
+npm start
+# or
+yarn start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see the app in action.
+
+## 🤝 Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Make your changes.
+4. Commit (`git commit -m "Add some feature"`).
+5. Push (`git push origin feature-name`).
+6. Open a Pull Request.
+
+---
+
+**GitHub Repo:** [React Theme Switcher](https://github.com/ashrafakib02/ReactRevision/tree/main/09themeswitcher)
