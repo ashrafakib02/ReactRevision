@@ -3,7 +3,7 @@ import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = 
     {
-     todos : []
+     todos : [{id: nanoid(), text: 'Learn Redux Toolkit'}]
     };
 
     export const todoSlice = createSlice({
@@ -28,7 +28,7 @@ const initialState =
                 if (todo) {
                     todo.text = text;
                 }
-            }
+            },
         }
     })
 
