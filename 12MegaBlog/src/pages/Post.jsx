@@ -11,18 +11,22 @@ export default function Post() {
   const navigate = useNavigate();
 
   const userData = useSelector((state) => state.auth.userData);
+ const authStatus = useSelector((state) => state.auth.status); // ✅ watch auth status too
+const isAuthor = post && userData ? post.userId === userData.$id : false;
 
-  useEffect(() => {
+useEffect(() => {
     if (slug) {
-      appwriteService.getPost(slug).then((post) => {
-        if (post) {
-          setPost(post);
-        } else navigate("/");
-      });
+        appwriteService.getPost(slug).then((post) => {
+            if (post) {
+                setPost(post);
+            } else navigate("/");
+        });
     } else navigate("/");
-  }, [slug, navigate]);
-  const isAuthor = post && userData ? post.userId === userData.$id : false;
-  console.log("post.userId:", post, "userData.$id:", userData);
+}, [slug, navigate]);
+
+// ✅ Log in render, not inside useEffect
+console.log("isAuthor:", isAuthor, "post.userId:", post?.userId, "userData.$id:", userData?.$id);
+
 
   const deletePost = () => {
     appwriteService.deletePost(post.$id).then((status) => {
@@ -43,7 +47,7 @@ export default function Post() {
             className="rounded-xl"
           />
 
-          {isAuthor && (
+          {authStatus && isAuthor && (
             <div className="absolute right-6 top-6">
               <Link to={`/edit-post/${post.$id}`}>
                 <Button bgColor="bg-green-500" className="mr-3">

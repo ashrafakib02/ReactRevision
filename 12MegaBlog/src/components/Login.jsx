@@ -25,7 +25,7 @@ function Login() {
           setError("Failed to fetch user data");
           return;
         } else {
-          dispatch(authLogin(session));
+          dispatch(authLogin(userData));
           navigate("/");
         }
       }

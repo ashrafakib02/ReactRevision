@@ -13,7 +13,7 @@ function PostForm({ post }) {
       defaultValues: {
         title: post?.title || "",
         content: post?.content || "",
-        slug: post?.slug || "",
+        slug: post?.$id || "",
         status: post?.status ? "active" : "inactive",
       },
     });
@@ -59,13 +59,13 @@ function PostForm({ post }) {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/incompatible-library
     const subscription = watch((value, { name }) => {
-      if (name === "title") {
+      if (name === "title" && !post) {
         const slug = slugTransform(value.title);
         setValue("slug", slug);
       }
     });
     return () => subscription.unsubscribe();
-  }, [watch, slugTransform, setValue]);
+  }, [watch, slugTransform, setValue, post]);
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
@@ -82,10 +82,15 @@ function PostForm({ post }) {
           className="mb-4"
           {...register("slug", { required: true })}
           onInput={(e) => {
-            setValue("slug", slugTransform(e.currentTarget.value), {
-              shouldValidate: true,
-            });
+            if (!post) {
+              // ✅ only allow input when creating
+              setValue("slug", slugTransform(e.currentTarget.value), {
+                shouldValidate: true,
+              });
+            }
           }}
+          readOnly={!!post}
+          disabled={!!post}
         />
         <RTE
           label="Content :"
