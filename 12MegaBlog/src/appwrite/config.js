@@ -69,12 +69,21 @@ export class Service {
     }
   }
 
-  async getActivePosts(status = true) {
+  async getActivePosts(status = true, userId) {
     try {
       return await this.databases.listDocuments({
         databaseId: conf.appWriteDatabaseId,
         collectionId: conf.appWriteCollectionId,
-        queries: [Query.equal("status", status), Query.orderDesc("$createdAt")],
+        queries: [
+          Query.or([
+            Query.equal("status", status), // all active posts
+            Query.and([
+              Query.equal("status", !status),
+              Query.equal("userId", userId), // inactive but only current user's
+            ]),
+          ]),
+          Query.orderDesc("$createdAt"),
+        ],
       });
     } catch (error) {
       console.error("Error getting active posts:", error);
@@ -109,13 +118,13 @@ export class Service {
   }
 
   getFilePreview(fileId) {
-  return this.bucket
-    .getFileView(
-      conf.appWriteBucketId,  // ✅ getFileView — no transformations, works on free plan
-      fileId
-    )
-    .toString();
-}
+    return this.bucket
+      .getFileView(
+        conf.appWriteBucketId, // ✅ getFileView — no transformations, works on free plan
+        fileId,
+      )
+      .toString();
+  }
 }
 
 const service = new Service();
