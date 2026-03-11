@@ -12,7 +12,7 @@ function AllPosts() {
         setPosts(posts.documents);
       }
     });
-  }, []);
+  }, [userData?.$id]);
   return (
     <div className="w-full py-8">
       <Container>

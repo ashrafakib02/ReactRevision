@@ -14,7 +14,7 @@ function Home() {
         setPosts(posts.documents);
       }
     });
-  }, []);
+  }, [userData?.$id]);
 
   if (posts.length === 0) {
     return (
